@@ -69,7 +69,9 @@ define Package/trojan/install
 	$(INSTALL_DATA) ./files/trojan.config $(1)/etc/config/trojan
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/trojan.init $(1)/etc/init.d/trojan
-	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/etc/trojan/config.json $(1)/etc/trojan.json
+	$(INSTALL_DIR) $(1)/etc/trojan
+	$(INSTALL_CONF) ./files/trojan/client.json $(1)/etc/trojan/client.json
+	$(INSTALL_CONF) $(PKG_INSTALL_DIR)/etc/trojan/config.json $(1)/etc/trojan/server.json
 endef
 
 define Package/trojan/conffiles
